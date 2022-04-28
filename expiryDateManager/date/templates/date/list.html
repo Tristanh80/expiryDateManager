@@ -5,6 +5,10 @@
 {% if product_expiry_date_list %}
 <h3>Expiry date</h3>
     <table>
+        <tr>
+            <td>Gtin of your article</td>
+            <td>Expiry date</td>
+        </tr>
         {% for product in product_expiry_date_list %}
         <tr>
             <td>{{ product.gtin }} </td> 
@@ -12,6 +16,7 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="/product/add/"><button>Add a product</button></a>
 {% else %}
     <p>No products are available</p>
 {% endif %}

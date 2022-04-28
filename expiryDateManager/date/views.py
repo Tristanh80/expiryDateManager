@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.utils import timezone
+from datetime import datetime
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from .models import ProductsList
 
 # Create your views here.
 
 class ProductsView(generic.ListView):
-    template_name = 'date/index.html'
+    template_name = 'date/list.html'
     context_object_name = 'product_expiry_date_list'
 
     def get_queryset(self):
@@ -15,3 +16,11 @@ class ProductsView(generic.ListView):
         Return all the products in the store
         """
         return ProductsList.objects.order_by('expiry_date')
+
+def addView(request):
+    return render(request, 'date/addproduct.html')
+
+def add_product(request, gtin, date):
+    obj = ProductsList(gtin=gtin, expiry_date=date)
+    obj.save()
+    return HttpResponseRedirect('/product')
