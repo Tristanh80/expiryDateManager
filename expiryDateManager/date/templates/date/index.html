@@ -1,0 +1,10 @@
+
+{% if product_expiry_date_list %}
+    <ul>
+        {% for product in product_expiry_date_list %}
+        <li><a href = "{% url 'date:detail' product.id%}">{{ product.gtin }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No products are available</p>
+{% endif %}
