@@ -1,10 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'date/style.css' %}">
 
 {% if product_expiry_date_list %}
-    <ul>
+<h3>Expiry date</h3>
+    <table>
         {% for product in product_expiry_date_list %}
-        <li><a href = "{% url 'date:detail' product.id%}">{{ product.gtin }}</a></li>
+        <tr>
+            <td>{{ product.gtin }} </td> 
+            <td>{{ product.expiry_date }} </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No products are available</p>
 {% endif %}

@@ -14,4 +14,4 @@ class ProductsView(generic.ListView):
         """
         Return all the products in the store
         """
-        return ProductsList.objects.order_by('-expiry_date')
+        return ProductsList.objects.order_by('expiry_date')
