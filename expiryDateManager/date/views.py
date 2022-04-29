@@ -16,9 +16,6 @@ class ProductsView(generic.ListView):
         """
         return ProductsList.objects.order_by('expiry_date')
 
-def addViewPage(request):
-    return render(request, 'date/addproduct.html')
-
 def get_information_product(request):
     if request.method == 'POST':
         gtin = request.POST.get('gtin')
