@@ -1,8 +1,13 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'date/styleproduct.css' %}">
+
+<a href="/product"><button class="">Back</button></a>
+
 <form action="" method="post">
     {% csrf_token %}
     <label for="gtin">Gtin :</label>
     <input id="gtin" type="number" name="gtin" required="required"><br>
-    <label for="expiry_date">Expiry date</label>
+    <label for="expiry_date">Date :</label>
     <input id="expiry_date" type="date" name="expiry_date" required="required">
     <input type="submit" value="OK">
 </form>

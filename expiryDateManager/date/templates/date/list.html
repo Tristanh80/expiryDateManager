@@ -1,13 +1,16 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'date/style.css' %}">
-
+<div>
+<a href="/admin"><button class="administration_button">Administration</button></a>
+</div>
 {% if product_expiry_date_list %}
+<div>
 <h3>Expiry date</h3>
     <table>
         <tr>
-            <td>Gtin of your article</td>
-            <td>Expiry date</td>
+            <td class="head_table">Gtin of your article</td>
+            <td class="head_table">Expiry date</td>
         </tr>
         {% for product in product_expiry_date_list %}
         <tr>
@@ -16,7 +19,8 @@
         </tr>
         {% endfor %}
     </table>
-    <a href="/product/add/"><button>Add a product</button></a>
+    <a href="/product/add/"><button class = "product_button">Add a product</button></a>
+</div>
 {% else %}
     <p>No products are available</p>
 {% endif %}
