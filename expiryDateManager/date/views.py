@@ -1,5 +1,4 @@
 from django.views import generic
-from datetime import datetime
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -17,8 +16,24 @@ class ProductsView(generic.ListView):
         """
         return ProductsList.objects.order_by('expiry_date')
 
-def addView(request):
+def addViewPage(request):
     return render(request, 'date/addproduct.html')
+
+def get_information_product(request):
+    if request.method == 'POST':
+        gtin = request.POST.get('gtin')
+        expiry_date = request.POST.get('expiry_date')
+        try:
+            ref = ProductsList.objects.get(gtin=gtin)
+            ref.expiry_date = expiry_date
+            ref.save()
+            return HttpResponseRedirect('/product')
+        except:
+            obj = ProductsList(gtin = gtin, expiry_date=expiry_date)
+            obj.save()
+            return HttpResponseRedirect('/product')
+    else:
+        return render(request, 'date/addproduct.html')
 
 def add_product(request, gtin, date):
     obj = ProductsList(gtin=gtin, expiry_date=date)
