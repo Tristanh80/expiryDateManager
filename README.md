@@ -28,6 +28,9 @@ or
 > python3 -m pip install django
 
 #### Run the project
+
 Go in expiryDateManager/expiryDateManager
+
 python manage.py migrate
+
 python manage.py runserver
