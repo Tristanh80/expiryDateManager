@@ -1,7 +1,7 @@
 # expiryDateManager
 Backend intern developer test for CodaBene
 
-## To build and run the app locally
+## To build and run the app locally (linux)
 Install [postgresql](https://www.postgresql.org/download/)
 
 #### Create and setup the database
