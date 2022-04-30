@@ -31,8 +31,3 @@ def get_information_product(request):
             return HttpResponseRedirect('/product')
     else:
         return render(request, 'date/addproduct.html')
-
-def add_product(request, gtin, date):
-    obj = ProductsList(gtin=gtin, expiry_date=date)
-    obj.save()
-    return HttpResponseRedirect('/product')

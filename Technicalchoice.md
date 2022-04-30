@@ -19,4 +19,3 @@ Les possibilités d’amélioration sont multiples. Tout d'abord, revoir le desi
 On peut également imaginer ajouter un tri par date d'expiration croissante ou décroissante.
 
 Un troisième point d’amélioration serait de pouvoir supprimer un produit. La seule façon pour l'instant de le faire est en étant dans la page d'administration du site.
-  
